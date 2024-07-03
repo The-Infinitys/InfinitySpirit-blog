@@ -33,7 +33,7 @@ List<string> GetFolderNames(string currentDirectory)
     return folderNames;
 }
 
-InfinityStyle.ReadSettingData();
+InfinityStyle.ReadSettingData(isDirectDrive);
 
 public struct htmlTemp
 {
@@ -63,12 +63,12 @@ public class CustomDate
 public static class InfinityStyle
 {
     public static SettingData? settingData;
-  public static void ReadSettingData()
+  public static void ReadSettingData(bool isDirect)
   {
     // 続きはここを見てやろう。
     // https://learn.microsoft.com/ja-jp/dotnet/standard/serialization/system-text-json/deserialization
     StreamReader settingJsonFile;
-    if (isDirectDrive){
+    if (isDirect){
         settingJsonFile= new StreamReader("./setting/setting.json");
     } else {
         settingJsonFile= new StreamReader("./The-Infinitys-InfinitySpirit/setting/setting.json");
