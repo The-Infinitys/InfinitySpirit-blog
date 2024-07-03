@@ -1,0 +1,15 @@
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.AssemblyInfoInputs.cache
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.AssemblyInfo.cs
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.csproj.CoreCompileInputs.cache
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.sourcelink.json
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/bin/Debug/net8.0/The-Infinitys-InfinitySpirit
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/bin/Debug/net8.0/The-Infinitys-InfinitySpirit.deps.json
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/bin/Debug/net8.0/The-Infinitys-InfinitySpirit.runtimeconfig.json
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/bin/Debug/net8.0/The-Infinitys-InfinitySpirit.dll
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/bin/Debug/net8.0/The-Infinitys-InfinitySpirit.pdb
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.dll
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/refint/The-Infinitys-InfinitySpirit.dll
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.pdb
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/The-Infinitys-InfinitySpirit.genruntimeconfig.cache
+/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/Debug/net8.0/ref/The-Infinitys-InfinitySpirit.dll
