@@ -1,6 +1,10 @@
 ﻿// The Infinity's Infinity Style Static Site Generator
+/*
+/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/Program.cs(3,6): error CS1001: Identifier expected [/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj]
+/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/Program.cs(18,1): error CS0106: The modifier 'public' is not valid for this item [/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj]
+*/
 using System;
-using.System.IO;
+using System.IO;
 using System.Text.Json;
 
 Console.WriteLine("-------Infinity Style Static Site Generator-------");
@@ -15,7 +19,7 @@ else
     Console.WriteLine("Not Found The-Infinitys-InfinitySpiirt. It is test mode");
 }
 
-public static List<string> GetFolderNames(string currentDirectory)
+List<string> GetFolderNames(string currentDirectory)
 {
     List<string> folderNames = new List<string>();
 
