@@ -1,7 +1,31 @@
 ﻿// The Infinity's Infinity Style Static Site Generator
+using System;
+using.System.IO;
 using System.Text.Json;
 
 Console.WriteLine("-------Infinity Style Static Site Generator-------");
+List<string> folderList = GetFolderNames(Environment.CurrentDirectory);
+bool isDirectDrive = folderList.Contains("The-Infinitys-InfinitySpirit");
+if (isDirectDrive)
+{
+    Console.WriteLine("Found The-Infinitys-InfinitySpirit. It is release mode");
+}
+else
+{
+    Console.WriteLine("Not Found The-Infinitys-InfinitySpiirt. It is test mode");
+}
+
+public static List<string> GetFolderNames(string currentDirectory)
+{
+    List<string> folderNames = new List<string>();
+
+    foreach (var directory in Directory.EnumerateDirectories(currentDirectory))
+    {
+        folderNames.Add(Path.GetFileName(directory));
+    }
+
+    return folderNames;
+}
 
 InfinityStyle.ReadSettingData();
 
@@ -37,7 +61,12 @@ public static class InfinityStyle
   {
     // 続きはここを見てやろう。
     // https://learn.microsoft.com/ja-jp/dotnet/standard/serialization/system-text-json/deserialization
-    StreamReader settingJsonFile = new StreamReader("./setting/setting.json");
+    StreamReader settingJsonFile;
+    if (isDirectDrive){
+        settingJsonFile= new StreamReader("./setting/setting.json");
+    } else {
+        settingJsonFile= new StreamReader("./The-Infinitys-InfinitySpirit/setting/setting.json");
+    }
     string settingJsonText = settingJsonFile.ReadToEnd();
     Console.WriteLine("Read setting.json:\n\"\"\"\n" + settingJsonText + "\n\"\"\"");
     settingData = JsonSerializer.Deserialize<SettingData>(
