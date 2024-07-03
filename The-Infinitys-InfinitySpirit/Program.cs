@@ -47,5 +47,7 @@ public static class InfinityStyle
     Console.WriteLine("Read Setting Data");
     Console.WriteLine("--------------------");
     Console.WriteLine("Repository Name: "+settingData?.RepositoryName);
+    Console.WriteLine("Repository Year: "+settingData?.RepositoryYear);
+    Console.WriteLine("--------------------");
   }
 }
