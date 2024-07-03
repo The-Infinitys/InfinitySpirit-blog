@@ -10,9 +10,9 @@ using System.Text.Json;
 
 Console.WriteLine("-------Infinity Style Static Site Generator-------");
 List<string> folderList = GetFolderNames(Environment.CurrentDirectory);
-bool isDirectDrive;
-isDirectDrive = folderList.Contains("The-Infinitys-InfinitySpirit");
-if (isDirectDrive)
+bool isReleaseMode;
+isReleaseMode = folderList.Contains("The-Infinitys-InfinitySpirit");
+if (isReleaseMode)
 {
     Console.WriteLine("Found The-Infinitys-InfinitySpirit. It is release mode");
 }
@@ -63,15 +63,15 @@ public class CustomDate
 public static class InfinityStyle
 {
     public static SettingData? settingData;
-  public static void ReadSettingData(bool isDirect)
+  public static void ReadSettingData(bool isRelease)
   {
     // 続きはここを見てやろう。
     // https://learn.microsoft.com/ja-jp/dotnet/standard/serialization/system-text-json/deserialization
     StreamReader settingJsonFile;
-    if (isDirect){
-        settingJsonFile= new StreamReader("./setting/setting.json");
-    } else {
+    if (isRelease){
         settingJsonFile= new StreamReader("./The-Infinitys-InfinitySpirit/setting/setting.json");
+    } else {
+        settingJsonFile= new StreamReader("./setting/setting.json");
     }
     string settingJsonText = settingJsonFile.ReadToEnd();
     Console.WriteLine("Read setting.json:\n\"\"\"\n" + settingJsonText + "\n\"\"\"");
