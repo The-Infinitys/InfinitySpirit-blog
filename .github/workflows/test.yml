@@ -1,0 +1,12 @@
+name: Infinity-Spirit-Test
+run-name: ${{ github.actor }} is Testing Infinity Spirit
+on: [push]
+jobs:
+  run-The-Infinitys-InfinitySpirit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cd The-Infinitys-InfinitySpirit
+      - run: dotnet run
+      - run: echo "complete test"
+      - run: cd ../
