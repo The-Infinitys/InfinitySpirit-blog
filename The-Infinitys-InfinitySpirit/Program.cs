@@ -33,7 +33,7 @@ List<string> GetFolderNames(string currentDirectory)
     return folderNames;
 }
 
-InfinityStyle.ReadSettingData(isDirectDrive);
+InfinityStyle.ReadSettingData(isReleaseMode);
 
 public struct htmlTemp
 {
