@@ -1,7 +1,8 @@
 ﻿// The Infinity's Infinity Style Static Site Generator
 /*
-/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/Program.cs(3,6): error CS1001: Identifier expected [/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj]
-/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/Program.cs(18,1): error CS0106: The modifier 'public' is not valid for this item [/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj]
+home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/Program.cs(69,9): error CS8801: Cannot use local variable or local function 'isDirectDrive' declared in a top-level statement in this context. [/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj]
+
+The build failed. Fix the build errors and run again.
 */
 using System;
 using System.IO;
@@ -9,7 +10,8 @@ using System.Text.Json;
 
 Console.WriteLine("-------Infinity Style Static Site Generator-------");
 List<string> folderList = GetFolderNames(Environment.CurrentDirectory);
-bool isDirectDrive = folderList.Contains("The-Infinitys-InfinitySpirit");
+bool isDirectDrive;
+isDirectDrive = folderList.Contains("The-Infinitys-InfinitySpirit");
 if (isDirectDrive)
 {
     Console.WriteLine("Found The-Infinitys-InfinitySpirit. It is release mode");
