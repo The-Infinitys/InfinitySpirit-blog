@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: cd The-Infinitys-InfinitySpirit
-      - run: ls
-      - run: dotnet run
+      - run: dotnet run --path The-Infinitys-InfinitySpirit
       - run: echo "complete test"
       - run: cd ../
