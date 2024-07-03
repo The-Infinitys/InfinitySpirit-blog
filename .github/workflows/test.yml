@@ -7,6 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: cd The-Infinitys-InfinitySpirit
+      - run: ls
       - run: dotnet run
       - run: echo "complete test"
       - run: cd ../
