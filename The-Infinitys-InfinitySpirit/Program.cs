@@ -44,6 +44,7 @@ List<string> GetFileNames(string currentDirectory)
   return folderNames;
 
 }
+GetFileNames(Environment.CurrentDirectory);
 InfinityStyle.ReadSettingData(isReleaseMode);
 
 public struct htmlTemp
@@ -97,6 +98,19 @@ public static class InfinityStyle
     Console.WriteLine("--------------------");
     Console.WriteLine("Repository Name: " + settingData?.RepositoryName);
     Console.WriteLine("Repository Year: " + settingData?.RepositoryYear);
+    Console.WriteLine("CustomDate Info:" , settingData?.customDate);
     Console.WriteLine("--------------------");
+  }
+  public static void SearchFolders()
+  {
+    // string articleRootDirName;
+    // if (settingData?.customDate.isAutoSet)
+    // {
+
+    // }
+    // else
+    // {
+
+    // }
   }
 }
