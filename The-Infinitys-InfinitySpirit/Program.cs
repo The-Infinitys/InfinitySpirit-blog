@@ -169,7 +169,7 @@ public static class InfinityStyle
       }
       if (!converted)
       {
-        result += line + "\n";
+        result += "<p>" + line + "</p>\n";
       }
     }
     return result;
