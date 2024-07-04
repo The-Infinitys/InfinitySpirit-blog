@@ -6,6 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: dotnet run --project The-Infinitys-InfinitySpirit
-      - run: echo "complete test"
+      - run: python ./The-Infinitys-InfinitySpirit/main.py
       - run: cd ../
