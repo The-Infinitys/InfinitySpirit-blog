@@ -143,54 +143,71 @@ public static class InfinityStyle
     string result = "";
     lines = markdown.Split("\n");
     bool mode_p = false;
+    bool mode_code = false;
     for (int i = 0; i < lines.Length; i++)
     {
-      bool converted = false;
       string line = lines[i];
-      for (int j = 0; j < 6; ++j)
+      if (mode_code)
       {
-        if (line.StartsWith(new String('#', j + 1) + " "))
+        if (line.StartsWith("```"))
         {
-          if (mode_p)
-          {
-            result += "</p>\n";
-            mode_p = !mode_p;
-          }
-          string innertext = line.Substring(j + 2, line.Length - j - 3);
-          result += "<h" + (j + 1).ToString() + ">";
-          result += innertext;
-          result += "</h" + (j + 1).ToString() + ">\n";
-          j = 6;  // 強制終了
-          converted = true;
-        }
-      }
-      if (!converted)
-      {
-        if (line.Replace("\n", "").Replace("\r", "").Length == 0)
-        {
-          if (mode_p)
-          {
-            result += "</p>\n";
-            mode_p = !mode_p;
-          }
-          else
-          {
-            result += "<p></p>";
-          }
+          mode_code = false;
+          result += "</pre>\n";
         }
         else
         {
-          if (mode_p)
+          // result+="<code>"+line.Replace("","")+"</code>";
+        }
+
+      }
+      else
+      {
+        bool converted = false;
+        for (int j = 0; j < 6; ++j)
+        {
+          if (line.StartsWith(new String('#', j + 1) + " "))
           {
-            result += line.Substring(0, line.Length - 1);
+            if (mode_p)
+            {
+              result += "</p>\n";
+              mode_p = !mode_p;
+            }
+            string innertext = line.Substring(j + 2, line.Length - j - 3);
+            result += "<h" + (j + 1).ToString() + ">";
+            result += innertext;
+            result += "</h" + (j + 1).ToString() + ">\n";
+            j = 6;  // 強制終了
+            converted = true;
+          }
+        }
+        if (!converted)
+        {
+          if (line.Replace("\n", "").Replace("\r", "").Length == 0)
+          {
+            if (mode_p)
+            {
+              result += "</p>\n";
+              mode_p = !mode_p;
+            }
+            else
+            {
+              result += "<p></p>";
+            }
           }
           else
           {
-            result += "<p>" + line.Substring(0, line.Length - 1);
-            mode_p = !mode_p;
+            if (mode_p)
+            {
+              result += line.Substring(0, line.Length - 1);
+            }
+            else
+            {
+              result += "<p>" + line.Substring(0, line.Length - 1);
+              mode_p = !mode_p;
+            }
           }
+          //ここ直せ
         }
-        //ここ直せ
       }
     }
     return result;
