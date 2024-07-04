@@ -14,25 +14,36 @@ bool isReleaseMode;
 isReleaseMode = folderList.Contains("The-Infinitys-InfinitySpirit");
 if (isReleaseMode)
 {
-    Console.WriteLine("Found The-Infinitys-InfinitySpirit. It is release mode");
+  Console.WriteLine("Found The-Infinitys-InfinitySpirit. It is release mode");
 }
 else
 {
-    Console.WriteLine("Not Found The-Infinitys-InfinitySpiirt. It is test mode");
+  Console.WriteLine("Not Found The-Infinitys-InfinitySpiirt. It is test mode");
 }
 
 List<string> GetFolderNames(string currentDirectory)
 {
-    List<string> folderNames = new List<string>();
+  List<string> folderNames = new List<string>();
 
-    foreach (var directory in Directory.EnumerateDirectories(currentDirectory))
-    {
-        folderNames.Add(Path.GetFileName(directory));
-    }
+  foreach (var directory in Directory.EnumerateDirectories(currentDirectory))
+  {
+    folderNames.Add(Path.GetFileName(directory));
+  }
 
-    return folderNames;
+  return folderNames;
 }
+List<string> GetFileNames(string currentDirectory)
+{
+  List<string> folderNames = new List<string>();
 
+  foreach (var directory in Directory.EnumerateDirectories(currentDirectory))
+  {
+    folderNames.Add(Path.GetFileName(directory));
+  }
+
+  return folderNames;
+
+}
 InfinityStyle.ReadSettingData(isReleaseMode);
 
 public struct htmlTemp
@@ -62,16 +73,19 @@ public class CustomDate
 
 public static class InfinityStyle
 {
-    public static SettingData? settingData;
+  public static SettingData? settingData;
   public static void ReadSettingData(bool isRelease)
   {
     // 続きはここを見てやろう。
     // https://learn.microsoft.com/ja-jp/dotnet/standard/serialization/system-text-json/deserialization
     StreamReader settingJsonFile;
-    if (isRelease){
-        settingJsonFile= new StreamReader("./The-Infinitys-InfinitySpirit/setting/setting.json");
-    } else {
-        settingJsonFile= new StreamReader("./setting/setting.json");
+    if (isRelease)
+    {
+      settingJsonFile = new StreamReader("./The-Infinitys-InfinitySpirit/setting/setting.json");
+    }
+    else
+    {
+      settingJsonFile = new StreamReader("./setting/setting.json");
     }
     string settingJsonText = settingJsonFile.ReadToEnd();
     Console.WriteLine("Read setting.json:\n\"\"\"\n" + settingJsonText + "\n\"\"\"");
@@ -81,8 +95,8 @@ public static class InfinityStyle
     Console.WriteLine("--------------------");
     Console.WriteLine("Read Setting Data");
     Console.WriteLine("--------------------");
-    Console.WriteLine("Repository Name: "+settingData?.RepositoryName);
-    Console.WriteLine("Repository Year: "+settingData?.RepositoryYear);
+    Console.WriteLine("Repository Name: " + settingData?.RepositoryName);
+    Console.WriteLine("Repository Year: " + settingData?.RepositoryYear);
     Console.WriteLine("--------------------");
   }
 }
