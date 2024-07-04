@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("The-Infinitys-InfinitySpirit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6b93d66cf158387057b3fc3ba74fb48d1598f25")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c0b781cd81b68712d124a4928c208c6fae31d0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("The-Infinitys-InfinitySpirit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("The-Infinitys-InfinitySpirit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

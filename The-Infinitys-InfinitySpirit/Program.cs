@@ -151,6 +151,11 @@ public static class InfinityStyle
       {
         if (line.StartsWith(new String('#', j + 1) + " "))
         {
+          if (mode_p)
+          {
+            result += "</p>\n";
+            mode_p = !mode_p;
+          }
           string innertext = line.Substring(j + 2, line.Length - j - 3);
           result += "<h" + (j + 1).ToString() + ">";
           result += innertext;
@@ -163,22 +168,26 @@ public static class InfinityStyle
       {
         if (line.Replace("\n", "").Replace("\r", "").Length == 0)
         {
-          // if (mode_p)
-          // {
-          //   result += "</p>";
-          // }
-          // else
-          // {
-          //   result += "<p>";
-          // }
+          if (mode_p)
+          {
+            result += "</p>\n";
+            mode_p = !mode_p;
+          }
+          else
+          {
+            result += "<p></p>";
+          }
         }
         else
         {
           if (mode_p)
           {
             result += line.Substring(0, line.Length - 1);
-          }else{
-            result += line.Substring(0, line.Length - 1);
+          }
+          else
+          {
+            result += "<p>" + line.Substring(0, line.Length - 1);
+            mode_p = !mode_p;
           }
         }
         //ここ直せ
