@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+from script import github, convert, loadsetting, dirsearch
 
 
 def main() -> int:
@@ -15,31 +16,8 @@ def main() -> int:
         return 1
 
     copy_right()
-    setting = None
-    with open("./The-Infinitys-InfinitySpirit/setting/setting.json") as f:
-        setting = json.loads(f.read())
-    print("Loaded settings")
-    print("-" * 40)
-    print("repository name:", setting["git-repository"]["name"])
-    print("repository year:", setting["git-repository"]["year"])
-    if setting["custom-date"] == True:
-        print("auto date detecter is enabled")
-    else:
-        print("manual date detect")
-        try:
-            for date in setting["custom-date"]:
-                print(date[0], "-", date[1])
-        except IndexError:
-            print(
-                "InfinitySpirit Error: Invalid Custom Date Index",
-                setting["custom-date"],
-            )
-            return 1
-        except TypeError:
-            print(
-                "InfinitySpirit Error: Invalid Custom Date Type", setting["custom-date"]
-            )
-            return 1
+    setting = loadsetting.load()
+
     return 0
 
 
