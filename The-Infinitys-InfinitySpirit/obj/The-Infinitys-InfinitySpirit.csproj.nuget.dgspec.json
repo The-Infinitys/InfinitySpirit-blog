@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj": {}
+    "/home/the-infinitys/git/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj": {}
   },
   "projects": {
-    "/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj": {
+    "/home/the-infinitys/git/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj",
+        "projectUniqueName": "/home/the-infinitys/git/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj",
         "projectName": "The-Infinitys-InfinitySpirit",
-        "projectPath": "/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/",
+        "projectPath": "/home/the-infinitys/git/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj",
+        "packagesPath": "/home/the-infinitys/.nuget/packages/",
+        "outputPath": "/home/the-infinitys/git/InfinitySpirit/The-Infinitys-InfinitySpirit/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/home/the-infinitys/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/245/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = The_Infinitys_InfinitySpirit
-build_property.ProjectDir = /workspaces/InfinitySpirit/The-Infinitys-InfinitySpirit/
+build_property.ProjectDir = /home/the-infinitys/git/InfinitySpirit/The-Infinitys-InfinitySpirit/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
