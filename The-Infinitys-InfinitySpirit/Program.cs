@@ -46,7 +46,23 @@ List<string> GetFileNames(string currentDirectory)
 }
 GetFileNames(Environment.CurrentDirectory);
 InfinityStyle.ReadSettingData(isReleaseMode);
+Console.WriteLine(InfinityStyle.ConvertMarkdownToHTML(@"
+# Hello!
+THIS IS TEST
+## Hello!
+THIS IS TEST
+### Hello!
+THIS IS TEST
+#### Hello!
+THIS IS TEST
+##### Hello!
+THIS IS TEST
+###### Hello!
+THIS IS TEST
 
+"));
+
+// クラス等の用意
 public struct htmlTemp
 {
   private htmlTemp(string head, string foot)
@@ -69,6 +85,7 @@ public static class ConvertSetting
   public static int convertYear;
   public static int convertMonth;
 }
+
 public static class InfinityStyle
 {
   public static SettingData? settingData;
@@ -127,16 +144,34 @@ public static class InfinityStyle
     Console.WriteLine("Convert Month: " + ConvertSetting.convertMonth.ToString());
     Console.WriteLine("--------------------");
   }
-  public static void SearchFolders()
+  public static string ConvertMarkdownToHTML(string markdown)
   {
-    // string articleRootDirName;
-    // if (settingData?.customDate.isAutoSet)
-    // {
-
-    // }
-    // else
-    // {
-
-    // }
+    string[] lines;
+    string result = "";
+    lines = markdown.Split("\n");
+    for (int i = 0; i < lines.Length; i++)
+    {
+      bool converted = false;
+      string line = lines[i];
+      for (int j = 0; j < 6; ++j)
+      {
+        if (line.StartsWith(new String('#', j + 1) + " "))
+        {
+          Console.WriteLine(line);
+          string innertext = line.Substring(j + 2);
+          Console.WriteLine(innertext);
+          result += "<h" + (j + 1).ToString() + ">";
+          result += innertext;
+          result += "</h" + (j + 1).ToString() + ">\n";
+          j = 6;  // 強制終了
+          converted = true;
+        }
+      }
+      if (!converted)
+      {
+        result += line + "\n";
+      }
+    }
+    return result;
   }
 }
