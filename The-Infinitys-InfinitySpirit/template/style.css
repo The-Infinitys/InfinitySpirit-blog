@@ -2,3 +2,34 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --infinityspirit-back: white;
+  --infinityspirit-text: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --infinityspirit-back: black;
+    --infinityspirit-text: white;
+  }
+}
+
+.article-back {
+  width: 100%;
+  height: auto;
+  padding-top: 5vh;
+  background: var(--infinityspirit-back);
+  color: var(--infinityspirit-text);
+}
+
+.article-title {
+  width: 50%;
+}
+
+.article-content {
+  width: 50%;
+  height: auto;
+  background: color-mix(in srgb, var(--infinityspirit-back), #888 10%);
+  color: var(--infinityspirit-text);
+}
