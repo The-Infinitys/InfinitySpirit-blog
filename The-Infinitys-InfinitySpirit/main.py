@@ -1,6 +1,14 @@
-def Infinity():
-  print("∞"*17)
-  print("Infinity Spirit Static Site Generator")
-  print("∞made by The Infinity's∞")
-  print("∞"*17)
-Infinity()
+import os
+import sys
+
+def main() -> int:
+  def copy_right() -> None:
+    print("∞"*37)
+    print("Infinity Spirit Static Site Generator")
+    print("∞"*8 + "made by The Infinity's" + "∞"*8)
+    print("∞"*37)
+  copy_right()
+  return 0
+
+if __name__ == 'main':
+    sys.exit(main())
