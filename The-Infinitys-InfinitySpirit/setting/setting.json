@@ -1,1 +1,11 @@
-{}
+{
+  "custom-date": {
+    "auto": true,
+    "year": null,
+    "month": null
+  },
+  "git-repository": {
+    "name": "InfinitySpirit",
+    "year": 2024
+  }
+}
