@@ -1,9 +1,4 @@
 ﻿// The Infinity's Infinity Style Static Site Generator
-/*
-home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/Program.cs(69,9): error CS8801: Cannot use local variable or local function 'isDirectDrive' declared in a top-level statement in this context. [/home/runner/work/InfinitySpirit/InfinitySpirit/The-Infinitys-InfinitySpirit/The-Infinitys-InfinitySpirit.csproj]
-
-The build failed. Fix the build errors and run again.
-*/
 using System;
 using System.IO;
 using System.Text.Json;
@@ -46,8 +41,7 @@ List<string> GetFileNames(string currentDirectory)
 }
 GetFileNames(Environment.CurrentDirectory);
 InfinityStyle.ReadSettingData(isReleaseMode);
-Console.WriteLine(InfinityStyle.ConvertMarkdownToHTML(@"
-# Hello!
+Console.WriteLine(InfinityStyle.ConvertMarkdownToHTML(@"# Hello!
 THIS IS TEST
 ## Hello!
 THIS IS TEST
@@ -59,7 +53,6 @@ THIS IS TEST
 THIS IS TEST
 ###### Hello!
 THIS IS TEST
-
 "));
 
 // クラス等の用意
@@ -149,6 +142,7 @@ public static class InfinityStyle
     string[] lines;
     string result = "";
     lines = markdown.Split("\n");
+    bool mode_p = false;
     for (int i = 0; i < lines.Length; i++)
     {
       bool converted = false;
@@ -157,9 +151,7 @@ public static class InfinityStyle
       {
         if (line.StartsWith(new String('#', j + 1) + " "))
         {
-          Console.WriteLine(line);
-          string innertext = line.Substring(j + 2);
-          Console.WriteLine(innertext);
+          string innertext = line.Substring(j + 2, line.Length - j - 3);
           result += "<h" + (j + 1).ToString() + ">";
           result += innertext;
           result += "</h" + (j + 1).ToString() + ">\n";
@@ -169,7 +161,27 @@ public static class InfinityStyle
       }
       if (!converted)
       {
-        result += "<p>" + line + "</p>\n";
+        if (line.Replace("\n", "").Replace("\r", "").Length == 0)
+        {
+          // if (mode_p)
+          // {
+          //   result += "</p>";
+          // }
+          // else
+          // {
+          //   result += "<p>";
+          // }
+        }
+        else
+        {
+          if (mode_p)
+          {
+            result += line.Substring(0, line.Length - 1);
+          }else{
+            result += line.Substring(0, line.Length - 1);
+          }
+        }
+        //ここ直せ
       }
     }
     return result;
