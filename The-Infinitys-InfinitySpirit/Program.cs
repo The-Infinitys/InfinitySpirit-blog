@@ -58,27 +58,22 @@ public struct htmlTemp
 
 public class SettingData
 {
-  public Dictionary<string, CustomDate>? customDate { get; set; }
-
+  public bool isAutoDate { get; set; }
+  public int CustomDateYear { get; set; }
+  public int CustomDateMonth { get; set; }
   public string? RepositoryName { get; set; }
-
-  public int? RepositoryYear { get; set; }
+  public int RepositoryYear { get; set; }
 }
-
-public class CustomDate
+public static class ConvertSetting
 {
-  public bool? isAutoSet { get; set; }
-  public int? CustomYear { get; set; }
-  public int? CustomMonth { get; set; }
+  public static int convertYear;
+  public static int convertMonth;
 }
-
 public static class InfinityStyle
 {
   public static SettingData? settingData;
   public static void ReadSettingData(bool isRelease)
   {
-    // 続きはここを見てやろう。
-    // https://learn.microsoft.com/ja-jp/dotnet/standard/serialization/system-text-json/deserialization
     StreamReader settingJsonFile;
     if (isRelease)
     {
@@ -98,7 +93,38 @@ public static class InfinityStyle
     Console.WriteLine("--------------------");
     Console.WriteLine("Repository Name: " + settingData?.RepositoryName);
     Console.WriteLine("Repository Year: " + settingData?.RepositoryYear);
-    Console.WriteLine("CustomDate Info:" , settingData?.customDate);
+    bool isAutoDate;
+    if (settingData is not null)
+    {
+      isAutoDate = settingData.isAutoDate == true;
+    }
+    else
+    {
+      isAutoDate = true;
+    }
+    if (isAutoDate)
+    {
+      DateTime dt = DateTime.Now;
+      ConvertSetting.convertYear = dt.Year;
+      ConvertSetting.convertMonth = dt.Month;
+    }
+    else
+    {
+      if (settingData?.CustomDateMonth is not null && settingData?.CustomDateYear is not null)
+      {
+        ConvertSetting.convertYear = settingData.CustomDateYear;
+        ConvertSetting.convertMonth = settingData.CustomDateMonth;
+      }
+      else
+      {
+        DateTime dt = DateTime.Now;
+        ConvertSetting.convertYear = dt.Year;
+        ConvertSetting.convertMonth = dt.Month;
+      }
+    }
+    Console.WriteLine("CustomDate Info:");
+    Console.WriteLine("Convert Year: " + ConvertSetting.convertYear.ToString());
+    Console.WriteLine("Convert Month: " + ConvertSetting.convertMonth.ToString());
     Console.WriteLine("--------------------");
   }
   public static void SearchFolders()

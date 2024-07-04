@@ -1,9 +1,7 @@
 {
-  "CustomDate": {
-    "isAutoSet": true,
-    "CustomYear": null,
-    "CustomMonth": null
-  },
+  "isAutoDate": true,
+  "CustomDateYear": 0,
+  "CustomDateMonth": 0,
   "RepositoryName": "InfinitySpirit",
   "RepositoryYear": 2024
 }
