@@ -46,6 +46,9 @@ THIS IS TEST
 ## Hello!
 THIS IS TEST
 ### Hello!
+```
+code
+```
 THIS IS TEST
 #### Hello!
 THIS IS TEST
@@ -147,6 +150,15 @@ public static class InfinityStyle
     for (int i = 0; i < lines.Length; i++)
     {
       string line = lines[i];
+      if (line==StartsWith("```\r\n"))
+      {
+        mode_code = !mode_code;
+        if (mode_code){
+          result +="<pre>\n";
+        }else{
+          result += "</pre>\n";
+        }
+      }
       if (mode_code)
       {
         if (line.StartsWith("```"))
@@ -158,10 +170,9 @@ public static class InfinityStyle
         {
           // result+="<code>"+line.Replace("","")+"</code>";
         }
-
       }
       else
-      {
+      {)
         bool converted = false;
         for (int j = 0; j < 6; ++j)
         {
