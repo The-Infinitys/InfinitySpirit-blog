@@ -53,6 +53,8 @@ def mdc(markdown_text):
     }
     global markdown_title
     markdown_result = ""
+    markdown_title = ""
+    markdown_date = ""
     convert_mode = {"~~": False}
     for markdown_line in markdown_text.split("\n"):
         # ~~を変換する機能がないので自分で実装する
@@ -64,13 +66,17 @@ def mdc(markdown_text):
             convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("# title: "):
             markdown_title = markdown_line[:]
-        elif markdown_line.startswith("date: "):
-            markdown_result += "<date>" + markdown_line[6:] + "</date>\n"
+        elif markdown_line.startswith("# date: "):
+            markdown_date = markdown_line[6:]
         else:
             markdown_result += markdown_line + "\n"
-    return markdown.markdown(
-        markdown_result, extensions=extensions, extension_configs=configs
-    )
+    return {
+        "html": markdown.markdown(
+            markdown_result, extensions=extensions, extension_configs=configs
+        ),
+        "title": markdown_title,
+        "date": markdown_date,
+    }
 
 
 def convert(date, now_year) -> None:
@@ -83,5 +89,10 @@ def convert(date, now_year) -> None:
             markdown_path = "./" + month_dir + "/" + article_dir + "/article.md"
             if os.path.isfile(markdown_path):
                 with open(markdown_path) as f:
-                    base_html = mdc(f.read())
-                    print(base_html)
+                    converted = mdc(f.read())
+                    base_html = converted["html"]
+                    article_title = converted["title"]
+                    article_date = converted["date"]
+                    print("article id:", article_dir)
+                    print("article title:", article_title)
+                    print("article date:", article_date)
