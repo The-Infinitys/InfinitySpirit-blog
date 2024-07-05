@@ -25,11 +25,29 @@
 
 .article-title {
   width: 50%;
+  line-height: 1.5;
 }
 
 .article-content {
+  line-height: 2;
+  font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
   width: 50%;
+  margin-left: 5%;
+  padding: 5%;
   height: auto;
   background: color-mix(in srgb, var(--infinityspirit-back), #888 10%);
   color: var(--infinityspirit-text);
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  border: 2px solid #888;
+  border-radius: 5px;
+  padding: 5px;
+  line-height: 2.5;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
 }
