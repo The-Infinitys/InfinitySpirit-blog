@@ -118,7 +118,7 @@ def convert(date, now_year) -> None:
                         + "</InfinitySpiritContent>",
                     )
                     export_html = export_html.replace(
-                        replace_pos["title"],
+                        replace_pos["date"],
                         "<InfinitySpiritDate>" + article_date + "</InfinitySpiritDate>",
                     )
                     with open(
