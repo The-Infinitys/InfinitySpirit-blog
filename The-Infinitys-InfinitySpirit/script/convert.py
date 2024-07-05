@@ -68,7 +68,7 @@ def mdc(markdown_text):
         if markdown_line.startswith("# title: "):
             markdown_title = markdown_line[9:]
         elif markdown_line.startswith("# date: "):
-            markdown_date = markdown_line[6:]
+            markdown_date = markdown_line[8:]
         else:
             markdown_result += markdown_line + "\n"
     return {
