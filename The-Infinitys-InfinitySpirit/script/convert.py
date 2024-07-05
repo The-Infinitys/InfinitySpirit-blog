@@ -1,6 +1,7 @@
 import os
 import sys
 import markdown
+import json
 from script import dirsearch, loadsetting
 
 template_html = ""
@@ -89,11 +90,12 @@ def indent_html(html, indent_level) -> str:
     return result
 
 
-def convert(date, now_year,indent) -> None:
+def convert(date, now_year, indent) -> None:
     target = {"year": date[0], "month": date[1]}
     if target["year"] == now_year:
         month_dir = str(target["month"]).zfill(2)
         article_dirs = dirsearch.folders(month_dir)
+        article_index_list = []
         for article_dir in article_dirs:
             print(article_dir)
             markdown_path = "./" + month_dir + "/" + article_dir + "/article.md"
@@ -113,7 +115,6 @@ def convert(date, now_year,indent) -> None:
                         + article_title
                         + "</InfinitySpiritMetaTitle>",
                     )
-
                     export_html = export_html.replace(
                         replace_pos["title"],
                         "<InfinitySpiritArticleTitle>"
@@ -137,3 +138,19 @@ def convert(date, now_year,indent) -> None:
                         "./" + month_dir + "/" + article_dir + "/index.html", mode="w"
                     ) as index_html:
                         index_html.write(export_html)
+                    article_thumbnail = ""
+                    for file_name in dirsearch.files(
+                        "./" + month_dir + "/" + article_dir
+                    ):
+                        if file_name.startswith("thumbnail"):
+                            article_thumbnail = file_name
+                    article_index_list.append(
+                        {
+                            "id": article_dir,
+                            "title": article_title,
+                            "date": article_date,
+                            "thumbnail": article_thumbnail,
+                        }
+                    )
+        with open("./" + month_dir + "/articles.json", mode="w") as f:
+            f.write(json.dumps({"articles": article_index_list}))
