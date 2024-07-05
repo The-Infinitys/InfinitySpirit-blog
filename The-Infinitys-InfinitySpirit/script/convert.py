@@ -89,7 +89,7 @@ def indent_html(html, indent_level) -> str:
     return result
 
 
-def convert(date, now_year) -> None:
+def convert(date, now_year,indent) -> None:
     target = {"year": date[0], "month": date[1]}
     if target["year"] == now_year:
         month_dir = str(target["month"]).zfill(2)
@@ -121,9 +121,9 @@ def convert(date, now_year) -> None:
                         + "</InfinitySpiritArticleTitle>",
                     )
                     base_html = (
-                        indent_html(base_html, 10)
+                        indent_html(base_html, indent)
                         + "\n"
-                        + 10 * " "
+                        + indent * " "
                         + "</InfinitySpiritContent>"
                     )
                     export_html = export_html.replace(

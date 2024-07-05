@@ -24,7 +24,11 @@ def main() -> int:
     else:
         target_dates = setting["custom-date"]
     for target_date in target_dates:
-        convert.convert(target_date, setting["git-repository"]["year"])
+        convert.convert(
+            target_date,
+            setting["git-repository"]["year"],
+            setting["converter"]["indent-level"],
+        )
     github.renew()
     return 0
 
