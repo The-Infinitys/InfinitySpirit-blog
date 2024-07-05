@@ -60,6 +60,20 @@
   box-sizing: border-box;
 }
 
+InfinitySpiritArticleTitle {
+  font-size: 40px;
+}
+
+.clock-watch {
+  width: 30px;
+}
+
+InfinitySpiritDate {
+  font-size: 30px;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--infinityspirit-text), transparent 20%);
+}
+
 .article-index {
   position: sticky;
   bottom: 10vh;

@@ -2,7 +2,7 @@ import os, sys, markdown
 from script import dirsearch, loadsetting
 
 template_html = ""
-replace_pos = {"meta-title": "", "title": "", "content": ""}
+replace_pos = {}
 
 
 def find_elem(tag, key) -> None:
@@ -29,6 +29,7 @@ with open("./The-Infinitys-InfinitySpirit/template/index.html") as f:
     find_elem("InfinitySpiritMetaTitle", "meta-title")
     find_elem("InfinitySpiritArticleTitle", "title")
     find_elem("InfinitySpiritContent", "content")
+    find_elem("InfinitySpiritDate", "date")
 
 
 def mdc(markdown_text):
