@@ -84,7 +84,7 @@ def mdc(markdown_text):
 
 def indent_html(html, indent_level) -> str:
     result = ""
-    for line in html:
+    for line in html.split("\n"):
         result += " " * indent_level + line
     return result
 
