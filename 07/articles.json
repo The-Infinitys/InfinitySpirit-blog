@@ -1,1 +1,10 @@
-{"articles": [{"id": "dummy", "title": "test", "date": "2024/07/05", "thumbnail": ""}]}
+{
+  "articles": [
+    {
+      "id": "dummy",
+      "title": "test",
+      "date": "2024/07/05",
+      "thumbnail": ""
+    }
+  ]
+}

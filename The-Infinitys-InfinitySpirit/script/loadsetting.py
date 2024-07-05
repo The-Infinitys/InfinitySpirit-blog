@@ -11,6 +11,8 @@ def load() -> dict:
     print("repository year:", setting["git-repository"]["year"])
     if setting["custom-date"] == True:
         print("auto date detecter is enabled")
+    elif setting["custom-date"] == "all":
+        print("all dates will be converted")
     else:
         print("manual date detect")
         try:

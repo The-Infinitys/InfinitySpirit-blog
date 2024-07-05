@@ -21,6 +21,10 @@ def main() -> int:
     if setting["custom-date"] == True:
         target_dates = datetime.datetime.now()
         target_dates = [[target_dates.year, target_dates.month]]
+    elif setting["custom-date"] == "all":
+        target_dates=[]
+        for i in range(12):
+            target_dates.append([setting["git-repository"]["year"], i + 1])
     else:
         target_dates = setting["custom-date"]
     for target_date in target_dates:
