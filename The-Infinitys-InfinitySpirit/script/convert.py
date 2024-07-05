@@ -1,5 +1,5 @@
 import os, sys, markdown
-from script import dirsearch
+from script import dirsearch, loadsetting
 
 template_html = ""
 replace_pos = {"meta-title": "", "title": "", "content": ""}
@@ -31,6 +31,13 @@ with open("./The-Infinitys-InfinitySpirit/template/index.html") as f:
     find_elem("InfinitySpiritContent", "content")
 
 
-def convert(date) -> None:
-    target = {"year": date[0], "month": date[1]}
+def markdown(text) -> str:
     pass
+
+
+def convert(date, now_year) -> None:
+    target = {"year": date[0], "month": date[1]}
+    if target["year"] == now_year:
+        article_dirs = dirsearch.folders(str(target["month"]).zfill(2))
+        for article_dir in article_dirs:
+            print(article_dir)
