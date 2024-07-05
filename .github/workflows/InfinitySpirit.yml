@@ -1,5 +1,5 @@
 name: Infinity-Spirit-Test
-run-name: ${{ github.actor }} is Testing Infinity Spirit
+run-name: ${{ github.actor }} Infinity Spirit
 on: [push]
 jobs:
   run-The-Infinitys-InfinitySpirit:
@@ -7,6 +7,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install markdown
-      - run: npm install --save-dev --save-exact prettier
+      - run: pip install pygments
       - run: python ./The-Infinitys-InfinitySpirit/
-      - run: cd ../
