@@ -97,3 +97,31 @@ def convert(date, now_year) -> None:
                     print("article id:", article_dir)
                     print("article title:", article_title)
                     print("article date:", article_date)
+                    export_html = template_html
+                    export_html = export_html.replace(
+                        replace_pos["meta-title"],
+                        "<InfinitySpiritMetaTitle>"
+                        + article_title
+                        + "</InfinitySpiritMetaTitle>",
+                    )
+
+                    export_html = export_html.replace(
+                        replace_pos["title"],
+                        "<InfinitySpiritArticleTitle>"
+                        + article_title
+                        + "</InfinitySpiritArticleTitle>",
+                    )
+                    export_html = export_html.replace(
+                        replace_pos["content"],
+                        "<InfinitySpiritContent>"
+                        + base_html
+                        + "</InfinitySpiritContent>",
+                    )
+                    export_html = export_html.replace(
+                        replace_pos["title"],
+                        "<InfinitySpiritDate>" + article_date + "</InfinitySpiritDate>",
+                    )
+                    with open(
+                        "./" + month_dir + "/" + article_dir + "/article.md", mode="w"
+                    ) as index_html:
+                        index_html.write(export_html)
