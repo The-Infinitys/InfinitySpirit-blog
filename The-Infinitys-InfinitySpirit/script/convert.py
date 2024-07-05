@@ -82,5 +82,6 @@ def convert(date, now_year) -> None:
             print(article_dir)
             markdown_path = "./" + month_dir + "/" + article_dir + "/article.md"
             if os.path.isfile(markdown_path):
-                base_html = mdc(markdown_path)
-                print(base_html)
+                with open(markdown_path) as f:
+                    base_html = mdc(f.read())
+                    print(base_html)
