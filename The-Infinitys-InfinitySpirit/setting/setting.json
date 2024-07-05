@@ -1,5 +1,5 @@
 {
-  "custom-date": [[2024,5],[2024,3]],
+  "custom-date": true,
   "git-repository": {
     "name": "InfinitySpirit",
     "year": 2024
