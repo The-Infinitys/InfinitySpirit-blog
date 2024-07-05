@@ -1,4 +1,6 @@
-import os, sys, markdown
+import os
+import sys
+import markdown
 from script import dirsearch, loadsetting
 
 template_html = ""
@@ -80,6 +82,13 @@ def mdc(markdown_text):
     }
 
 
+def indent_html(html, indent_level) -> str:
+    result = ""
+    for line in html:
+        result += " " * indent_level + line
+    return result
+
+
 def convert(date, now_year) -> None:
     target = {"year": date[0], "month": date[1]}
     if target["year"] == now_year:
@@ -111,11 +120,14 @@ def convert(date, now_year) -> None:
                         + article_title
                         + "</InfinitySpiritArticleTitle>",
                     )
+                    base_html = (
+                        indent_html(base_html, 10)
+                        + "\n"
+                        + 10 * " "
+                        + "</InfinitySpiritContent>"
+                    )
                     export_html = export_html.replace(
-                        replace_pos["content"],
-                        "<InfinitySpiritContent>"
-                        + base_html
-                        + "</InfinitySpiritContent>",
+                        replace_pos["content"], "<InfinitySpiritContent>\n" + base_html
                     )
                     export_html = export_html.replace(
                         replace_pos["date"],

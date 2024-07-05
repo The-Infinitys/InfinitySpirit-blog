@@ -7,5 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install markdown
+      - run: npm install --save-dev --save-exact prettier
       - run: python ./The-Infinitys-InfinitySpirit/
       - run: cd ../
