@@ -1,6 +1,9 @@
 name: Infinity-Spirit-Test
 run-name: ${{ github.actor }} Infinity Spirit
 on: [push]
+permissions:
+  contents: write
+  repository-projects: write
 jobs:
   run-The-Infinitys-InfinitySpirit:
     runs-on: ubuntu-latest
