@@ -65,7 +65,7 @@ def mdc(markdown_text):
                 markdown_line = markdown_line.replace("~~", "<s>", 1)
             convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("# title: "):
-            markdown_title = markdown_line[:]
+            markdown_title = markdown_line[9:]
         elif markdown_line.startswith("# date: "):
             markdown_date = markdown_line[6:]
         else:
