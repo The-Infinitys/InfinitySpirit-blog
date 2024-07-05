@@ -122,6 +122,6 @@ def convert(date, now_year) -> None:
                         "<InfinitySpiritDate>" + article_date + "</InfinitySpiritDate>",
                     )
                     with open(
-                        "./" + month_dir + "/" + article_dir + "/article.md", mode="w"
+                        "./" + month_dir + "/" + article_dir + "/index.html", mode="w"
                     ) as index_html:
                         index_html.write(export_html)
