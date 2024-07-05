@@ -23,10 +23,6 @@
   color: var(--infinityspirit-text);
 }
 
-.article-title {
-  width: 50%;
-  line-height: 1.5;
-}
 
 .article-content {
   line-height: 2;
@@ -35,7 +31,7 @@
   margin-left: 5%;
   padding: 5%;
   height: auto;
-  background: color-mix(in srgb, var(--infinityspirit-back), #888 10%);
+  background: color-mix(in srgb, var(--infinityspirit-back), #888 20%);
   color: var(--infinityspirit-text);
 }
 
@@ -50,4 +46,15 @@
   margin-top: 0.5em;
   margin-bottom: 1em;
   box-sizing: border-box;
+}
+
+InfinitySpiritArticleTitle {
+  margin-left: 5%;
+  font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
+  text-wrap: wrap;
+  text-overflow: clip;
+  width: 50%;
+  height: auto;
+  border: 2px solid #888;
+  font-size: 40px;
 }
