@@ -37,6 +37,7 @@ const recommendArticles = () => {
   const article_list = document.createElement("div");
   article_list.className = "articles-recommended";
   document.querySelector(".article-body").append(article_list);
+  article_list.innerHTML="now making... It will be updated soon...";
 };
 recommendArticles();
 
@@ -47,7 +48,6 @@ const renew_Infinity_clock = () => {
   if (renew_clock_watch_count == 0) {
     const now = new Date();
     const clock_hand_svg = document.querySelector(".Infinity-clock_hands");
-    clock_hand_svg.style = "stroke:var(--article-text);";
     const now_hours = now.getHours();
     const now_minutes = now.getMinutes();
     const now_seconds = now.getSeconds() + now.getMilliseconds() / 1000;
