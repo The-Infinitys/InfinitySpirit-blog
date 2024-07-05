@@ -1,7 +1,7 @@
 import os
 import sys
-import json
-from script import github, convert, loadsetting, dirsearch
+import datetime
+from script import github, convert, loadsetting
 
 
 def main() -> int:
@@ -17,7 +17,15 @@ def main() -> int:
 
     copy_right()
     setting = loadsetting.load()
-
+    target_dates = None
+    if setting["custom-date"] == True:
+        target_dates = datetime.datetime.now()
+        target_dates = [[target_dates.year, target_dates.month]]
+    else:
+        target_dates = setting["custom-date"]
+    for target_date in target_dates:
+        convert.convert(target_date)
+    github.renew()
     return 0
 
 
