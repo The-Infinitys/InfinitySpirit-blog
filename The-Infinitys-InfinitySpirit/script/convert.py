@@ -2,19 +2,29 @@ import os, sys, markdown
 
 template_html = ""
 replace_pos = {"meta-title": "", "title": "", "content": ""}
-with open("./The-Infinitys-InfinitySpirit/template/index.html") as f:
-    template_html = f.read()
-    if (
-        "<InfinitySpiritMetaTitle>" in template_html
-        and "</InfinitySpiritMetaTitle>" in template_html
-    ):
+
+
+def find_elem(tag, key) -> None:
+    if "<" + tag + ">" in template_html and "</" + tag + ">" in template_html:
         print(
-            "InfinitySpirit.markdownconverter log: succeeded to load location of meta title"
+            "InfinitySpirit.markdownconverter log: succeeded to load location of",
+            key,
         )
-        replace_pos["meta-title"]=template_html[template_html.find("<InfinitySpiritMetaTitle>"):template_html.find("</InfinitySpiritMetaTitle>")+len("</InfinitySpiritMetaTitle>")]
-        print(replace_pos["meta-title"])
+        replace_pos[key] = template_html[
+            template_html.find("<" + tag + ">") : template_html.find("</" + tag + ">")
+            + len("</" + tag + ">")
+        ]
+        print(replace_pos[key])
     else:
         print(
-            "InfinitySpirit.markdownconverter error: failed to load location of meta data"
+            "InfinitySpirit.markdownconverter error: failed to load location of",
+            key,
         )
         sys.exit(1)
+
+
+with open("./The-Infinitys-InfinitySpirit/template/index.html") as f:
+    template_html = f.read()
+    find_elem("InfinitySpiritMetaTitle","meta-title")
+    find_elem("InfinitySpiritArticleTitle","title")
+    find_elem("InfinitySpiritContent","content")
