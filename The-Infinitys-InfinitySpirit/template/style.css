@@ -48,12 +48,13 @@
   box-sizing: border-box;
 }
 
-InfinitySpiritArticleTitle {
-  margin-left: 5%;
+.article-title {
   font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
   text-wrap: wrap;
   text-overflow: clip;
   width: 50%;
+  margin-left: 5%;
+  padding: 5%;
   height: auto;
   border: 2px solid #888;
   font-size: 40px;
