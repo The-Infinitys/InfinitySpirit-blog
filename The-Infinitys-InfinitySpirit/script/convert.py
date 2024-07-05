@@ -31,7 +31,7 @@ with open("./The-Infinitys-InfinitySpirit/template/index.html") as f:
     find_elem("InfinitySpiritContent", "content")
 
 
-def markdown(markdown_text):
+def mdc(markdown_text):
     extensions = [
         "extra",
         "admonition",
@@ -62,10 +62,10 @@ def markdown(markdown_text):
             else:
                 markdown_line = markdown_line.replace("~~", "<s>", 1)
             convert_mode["~~"] = not convert_mode["~~"]
-        if markdown_line.startswith("#title: "):
-            markdown_title = markdown_line[8:]
-        elif markdown_line.startswith("#date: "):
-            markdown_result += "<date>" + markdown_line[7:] + "</date>\n"
+        if markdown_line.startswith("# title: "):
+            markdown_title = markdown_line[:]
+        elif markdown_line.startswith("date: "):
+            markdown_result += "<date>" + markdown_line[6:] + "</date>\n"
         else:
             markdown_result += markdown_line + "\n"
     return markdown.markdown(
@@ -76,7 +76,11 @@ def markdown(markdown_text):
 def convert(date, now_year) -> None:
     target = {"year": date[0], "month": date[1]}
     if target["year"] == now_year:
-        article_dirs = dirsearch.folders(str(target["month"]).zfill(2))
+        month_dir = str(target["month"]).zfill(2)
+        article_dirs = dirsearch.folders(month_dir)
         for article_dir in article_dirs:
             print(article_dir)
-            
+            markdown_path = "./" + month_dir + "/" + article_dir + "/article.md"
+            if os.path.isfile(markdown_path):
+                base_html = mdc(markdown_path)
+                print(base_html)
