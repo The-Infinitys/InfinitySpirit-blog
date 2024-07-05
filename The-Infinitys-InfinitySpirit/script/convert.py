@@ -18,7 +18,6 @@ def find_elem(tag, key) -> None:
             template_html.find("<" + tag + ">") : template_html.find("</" + tag + ">")
             + len("</" + tag + ">")
         ]
-        print(replace_pos[key])
     else:
         print(
             "InfinitySpirit.markdownconverter error: failed to load location of",
