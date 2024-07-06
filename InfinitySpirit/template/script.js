@@ -1,7 +1,5 @@
 const makeIndex = () => {
-  const article_index = document.createElement("div");
-  article_index.className = "article-index";
-  const article_body = document.querySelector(".article-body");
+  const article_index = document.querySelector(".article-index");
   const article_content = document.querySelector("InfinitySpiritContent");
   const addIndex = (element) => {
     const tag = document.createElement(element.tagName);
@@ -30,17 +28,15 @@ const makeIndex = () => {
       addIndex(element);
     }
   }
-  article_body.append(article_index);
 };
 makeIndex();
 const recommendArticles = () => {
-  const article_list = document.createElement("div");
-  article_list.className = "articles-recommended";
-  document.querySelector(".article-body").append(article_list);
-  article_list.innerHTML="now making... It will be updated soon...";
+  const article_list = document.querySelector(".articles-recommended");
+  for (let month_count=0;month_count<12;month_count++){
+    // fetch.
+  }
 };
 recommendArticles();
-
 
 let renew_clock_watch_count = 0;
 const renew_Infinity_clock = () => {
