@@ -3,7 +3,7 @@ import json
 
 def load() -> dict:
     setting = {}
-    with open("./The-Infinitys-InfinitySpirit/setting/setting.json") as f:
+    with open("./InfinitySpirit/setting/setting.json") as f:
         setting = json.loads(f.read())
     print("Loaded settings")
     print("-" * 40)

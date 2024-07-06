@@ -5,10 +5,10 @@ permissions:
   contents: write
   repository-projects: write
 jobs:
-  run-The-Infinitys-InfinitySpirit:
+  run-InfinitySpirit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: pip install markdown
       - run: pip install pygments
-      - run: python ./The-Infinitys-InfinitySpirit/
+      - run: python ./InfinitySpirit/
