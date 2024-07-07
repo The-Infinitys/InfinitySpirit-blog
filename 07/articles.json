@@ -1,3 +1,10 @@
 {
-  "articles": []
+  "articles": [
+    {
+      "id": "test",
+      "title": "",
+      "date": "",
+      "thumbnail": ""
+    }
+  ]
 }

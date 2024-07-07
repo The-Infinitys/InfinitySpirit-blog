@@ -32,6 +32,7 @@ const makeIndex = () => {
 makeIndex();
 const recommendArticles = () => {
   const article_list = document.querySelector(".articles-recommended");
+  article_list.innerHTML = "";
   for (let month_count = 0; month_count < 12; month_count++) {
     const list_path =
       "../../" +
@@ -39,9 +40,13 @@ const recommendArticles = () => {
       "/articles.json";
     fetch(list_path)
       .then((res) => res.json())
-      .then((data) => {
-        data = data.articles;
-        console.log(data.length);
+      .then((article_data) => {
+        const datas = article_data.articles;
+        datas.forEach((article_info) => {
+          const article_button = document.createElement("button");
+          const path =
+            "../../" + (1 + month_count).toString().padStart(2, "0") + "/";
+        });
       });
   }
 };
