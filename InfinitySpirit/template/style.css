@@ -118,6 +118,7 @@ InfinitySpiritDate {
 .articles-recommended>button {
   border-radius: var(--this-margin);
   border: none;
+  position: relative;
   --this-width: 50%;
   --this-margin: 10px;
   width: calc(var(--this-width) - 2 * var(--this-margin));
@@ -135,12 +136,13 @@ InfinitySpiritDate {
 }
 
 .article-index>button>div {
-  color: var(--infinityspirit-text);
   position: absolute;
   width: 100%;
   height: 20%;
-  bottom: 0;
+  top: 80%;
   left: 0;
+  border: #888 2px solid;
+  border: 1px solid var(--infinityspirit-text);
 }
 
 @media (max-aspect-ratio:1/1) {
