@@ -119,6 +119,7 @@ InfinitySpiritDate {
   border-radius: var(--this-margin);
   border: none;
   position: relative;
+  overflow: hidden;
   --this-width: 50%;
   --this-margin: 10px;
   width: calc(var(--this-width) - 2 * var(--this-margin));
@@ -133,16 +134,16 @@ InfinitySpiritDate {
   height: 80%;
   top: 0;
   left: 0;
+  object-fit: cover;
 }
 
-.article-index>button>div {
+.articles-recommended>button>div {
   position: absolute;
   width: 100%;
   height: 20%;
   top: 80%;
   left: 0;
-  border: #888 2px solid;
-  border: 1px solid var(--infinityspirit-text);
+  color: var(--infinityspirit-text);
 }
 
 @media (max-aspect-ratio:1/1) {
