@@ -156,9 +156,10 @@ def convert(date, now_year, indent) -> None:
             def get_date(obj) -> str:
                 return obj["date"]
 
+            article_index_list.sort(key=get_date, reverse=True)
             f.write(
                 json.dumps(
-                    {"articles": article_index_list.sort(key=get_date, reverse=True)},
+                    {"articles": article_index_list},
                     indent=2,
                 )
             )
