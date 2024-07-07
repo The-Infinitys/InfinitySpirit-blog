@@ -105,6 +105,7 @@ InfinitySpiritDate {
   line-height: 2;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
   width: 50%;
   margin-left: 5%;

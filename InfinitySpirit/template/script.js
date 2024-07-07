@@ -44,8 +44,27 @@ const recommendArticles = () => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
           const article_button = document.createElement("button");
-          const path =
-            "../../" + (1 + month_count).toString().padStart(2, "0") + "/";
+          const article_root_path =
+            "../../" +
+            (1 + month_count).toString().padStart(2, "0") +
+            "/" +
+            article_info.id +
+            "/";
+          article_button.onclick = () => {
+            window.location.href = article_root_path;
+          };
+          const thumbnail = new Image();
+          if (article_info.thumbnail == "") {
+            thumbnail.src = "../../InfinitySpirit/template/image/loading.svg";
+          } else {
+            thumbnail.src = article_root_path + article_info.thumbnail;
+          }
+          const title = document.createElement("div");
+          title.innerHTML =
+            "<h1>" + article_info.title + "</h1><p>date: " + article_info.date;
+          article_button.append(thumbnail);
+          article_button.append(title);
+          article_list.append(article_button);
         });
       });
   }
