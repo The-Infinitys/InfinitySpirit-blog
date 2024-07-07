@@ -32,8 +32,17 @@ const makeIndex = () => {
 makeIndex();
 const recommendArticles = () => {
   const article_list = document.querySelector(".articles-recommended");
-  for (let month_count=0;month_count<12;month_count++){
-    // fetch.
+  for (let month_count = 0; month_count < 12; month_count++) {
+    const list_path =
+      "../../" +
+      (1 + month_count).toString().padStart(2, "0") +
+      "/articles.json";
+    fetch(list_path)
+      .then((res) => res.json())
+      .then((data) => {
+        data = data.articles;
+        console.log(data.length);
+      });
   }
 };
 recommendArticles();
