@@ -152,4 +152,13 @@ def convert(date, now_year, indent) -> None:
                         }
                     )
         with open("./" + month_dir + "/articles.json", mode="w") as f:
-            f.write(json.dumps({"articles": article_index_list}, indent=2))
+
+            def get_date(obj) -> str:
+                return obj["date"]
+
+            f.write(
+                json.dumps(
+                    {"articles": article_index_list.sort(key=get_date, reverse=True)},
+                    indent=2,
+                )
+            )

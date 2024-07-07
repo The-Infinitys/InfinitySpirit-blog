@@ -1,10 +1,3 @@
 {
-  "articles": [
-    {
-      "id": "test",
-      "title": "test dummy dummy",
-      "date": "2024/07/07",
-      "thumbnail": ""
-    }
-  ]
+  "articles": null
 }
