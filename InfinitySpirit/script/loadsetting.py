@@ -29,4 +29,5 @@ def load() -> dict:
                 "InfinitySpirit Error: Invalid Custom Date Type", setting["custom-date"]
             )
             return {}
+    print("-" * 40)
     return setting
