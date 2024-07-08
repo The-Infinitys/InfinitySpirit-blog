@@ -14,7 +14,7 @@ setup(
     author_email="the.infinitys.infinity@gmail.com",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
-    long_description=open('README.md').read(),
+    long_description=open('readme.md').read(),
     packages=find_packages(),
     install_requires=["markdown","pygments"],
     keywords=["the infinity's","the_infinitys","the-infinitys","markdown","static","site","generator","ssg"],
