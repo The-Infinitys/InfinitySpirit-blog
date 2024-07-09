@@ -1,4 +1,4 @@
-# InfinitySpirit - Static Site Generator
+# InfinitySpirit blog - Static Site Generator for writing blogs
 
 <img src="./InfinitySpirit.jpeg" style="width:100%;">
 
@@ -87,3 +87,9 @@ This repository is intended to be newly cloned every year and to separate articl
 It is set for this reason.
 ### converter
 It is set for customize converter.
+
+## style
+you can change style by edit [InfinitySpirit/template/](./InfinitySpirit/template/)
+
+# copyright
+The Infinity's
