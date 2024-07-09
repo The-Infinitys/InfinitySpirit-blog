@@ -19,4 +19,7 @@ def all_files(dir_path) -> list:
     result = []
     for file in files(dir_path):
         result.append(file)
+    for folder in folders(dir_path):
+        for all_file in all_files(dir_path+"/"+folder):
+            result.append(all_file)
     return result
