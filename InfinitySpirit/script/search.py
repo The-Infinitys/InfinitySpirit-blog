@@ -15,11 +15,14 @@ def files(dir_path) -> list:
     return result
 
 
-def all_files(dir_path) -> list:
+def all_files(dir_path, hide_file=False) -> list:
     result = []
     for file in files(dir_path):
-        result.append(file)
+        if not file.startswith(".") or hide_file:
+            result.append(dir_path + "/" + file)
     for folder in folders(dir_path):
-        for all_file in all_files(dir_path+"/"+folder):
-            result.append(all_file)
+        if not folder.startswith(".") or hide_file:
+            for all_file in all_files(dir_path + "/" + folder):
+                result.append(all_file)
     return result
+

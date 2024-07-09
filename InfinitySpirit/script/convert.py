@@ -2,7 +2,7 @@ import os
 import sys
 import markdown
 import json
-from script import dirsearch, loadsetting
+from script import search, loadsetting
 
 template_html = ""
 replace_pos = {}
@@ -93,7 +93,7 @@ def convert(date, now_year, indent) -> None:
     target = {"year": date[0], "month": date[1]}
     if target["year"] == now_year:
         month_dir = str(target["month"]).zfill(2)
-        article_dirs = dirsearch.folders(month_dir)
+        article_dirs = search.folders(month_dir)
         article_index_list = []
         for article_dir in article_dirs:
             print(article_dir)
@@ -138,7 +138,7 @@ def convert(date, now_year, indent) -> None:
                     ) as index_html:
                         index_html.write(export_html)
                     article_thumbnail = ""
-                    for file_name in dirsearch.files(
+                    for file_name in search.files(
                         "./" + month_dir + "/" + article_dir
                     ):
                         if file_name.startswith("thumbnail"):
