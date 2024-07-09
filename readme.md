@@ -90,6 +90,7 @@ It is set for customize converter.
 
 ## style
 you can change style by edit [InfinitySpirit/template/](./InfinitySpirit/template/)
+default is recommended
 
 # copyright
 The Infinity's
