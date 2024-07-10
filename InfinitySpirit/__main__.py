@@ -11,7 +11,7 @@ def main() -> int:
         print("∞" * 9 + " made by The Infinity's" + "∞" * 9)
         print("∞" * 41)
 
-    if not os.path.isfile("InfinitySpirit.infinity"):
+    if not os.path.isfile("InfinitySpirit/InfinitySpirit.infinity"):
         print("InfinitySpirit Error: Invalid Current Directory")
         return 1
 

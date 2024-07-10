@@ -6,6 +6,7 @@ from script import search, loadsetting
 
 template_html = ""
 replace_pos = {}
+legacy_repository_name = "article-2024"
 
 
 def find_elem(tag, key) -> None:
@@ -28,8 +29,7 @@ def find_elem(tag, key) -> None:
 
 with open("./InfinitySpirit/template/index.html") as f:
     template_html = f.read()
-    find_elem("InfinitySpiritMetaTitle", "meta-title")
-    find_elem("InfinitySpiritArticleTitle", "title")
+    find_elem("InfinitySpiritTitle", "title")
     find_elem("InfinitySpiritContent", "content")
     find_elem("InfinitySpiritDate", "date")
 
@@ -69,8 +69,18 @@ def mdc(markdown_text):
             convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("# title: "):
             markdown_title = markdown_line[9:]
+        elif markdown_line.startswith("# ") and markdown_title == "":
+            markdown_title = markdown_line[2:]
+        elif markdown_line.startswith("<h1>") and markdown_title == "":
+            markdown_title = markdown_line.replace("<h1>", "").replace("</h1>", "")
         elif markdown_line.startswith("# date: "):
             markdown_date = markdown_line[8:]
+        elif markdown_line.startswith("<date>"):
+            markdown_date = (
+                markdown_line.replace("<date>", "")
+                .replace("</date>", "")
+                .replace(" ", "")
+            )
         else:
             markdown_result += markdown_line + "\n"
     return {
@@ -109,16 +119,7 @@ def convert(date, now_year, indent) -> None:
                     print("article date:", article_date)
                     export_html = template_html
                     export_html = export_html.replace(
-                        replace_pos["meta-title"],
-                        "<InfinitySpiritMetaTitle>"
-                        + article_title
-                        + "</InfinitySpiritMetaTitle>",
-                    )
-                    export_html = export_html.replace(
-                        replace_pos["title"],
-                        "<InfinitySpiritArticleTitle>"
-                        + article_title
-                        + "</InfinitySpiritArticleTitle>",
+                        replace_pos["title"], article_title
                     )
                     base_html = (
                         indent_html(base_html, indent)
@@ -138,9 +139,7 @@ def convert(date, now_year, indent) -> None:
                     ) as index_html:
                         index_html.write(export_html)
                     article_thumbnail = ""
-                    for file_name in search.files(
-                        "./" + month_dir + "/" + article_dir
-                    ):
+                    for file_name in search.files("./" + month_dir + "/" + article_dir):
                         if file_name.startswith("thumbnail"):
                             article_thumbnail = file_name
                     article_index_list.append(
@@ -151,15 +150,53 @@ def convert(date, now_year, indent) -> None:
                             "thumbnail": article_thumbnail,
                         }
                     )
+
+        def get_date(obj) -> str:
+            return obj["date"]
+
         with open("./" + month_dir + "/articles.json", mode="w") as f:
-
-            def get_date(obj) -> str:
-                return obj["date"]
-
             article_index_list.sort(key=get_date, reverse=True)
             f.write(
                 json.dumps(
                     {"articles": article_index_list},
+                    indent=2,
+                )
+            )
+        # legacy mode
+        legacy_index = []
+        for article_index in article_index_list:
+            pass
+            legacy_index.append(
+                {
+                    "index": "/"
+                    + legacy_repository_name
+                    + "/"
+                    + month_dir
+                    + "/"
+                    + article_index["id"]
+                    + "/",
+                    "name": article_index["id"],
+                    "thumbnail": "/"
+                    + legacy_repository_name
+                    + "/"
+                    + month_dir
+                    + "/"
+                    + article_index["id"]
+                    + "/"
+                    + article_index["thumbnail"],
+                    "title": article_index["title"],
+                    "date": article_index["date"],
+                }
+            )
+        legacy_index.sort(key=get_date, reverse=True)
+        legacy_index = {"info": legacy_index}
+        with open(
+            "./" + "/index/" + str(target["year"]) + "-" + month_dir + ".json",
+            mode="w",
+        ) as f:
+            f.write(
+                json.dumps(
+                    legacy_index,
                     indent=2,
                 )
             )
