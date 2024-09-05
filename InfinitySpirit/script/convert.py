@@ -27,7 +27,7 @@ def find_elem(tag, key) -> None:
         sys.exit(1)
 
 
-with open("./InfinitySpirit/template/index.html") as f:
+with open("./InfinitySpirit/layout/index.html") as f:
     template_html = f.read()
     find_elem("InfinitySpiritTitle", "title")
     find_elem("InfinitySpiritContent", "content")

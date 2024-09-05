@@ -89,7 +89,7 @@ It is set for this reason.
 It is set for customize converter.
 
 ## style
-you can change style by edit [InfinitySpirit/template/](./InfinitySpirit/template/)
+you can change style by edit [InfinitySpirit/layout/](./InfinitySpirit/layout/)
 default is recommended
 
 # copyright
